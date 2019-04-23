@@ -9,7 +9,6 @@ var numObj = {
 
 console.log(numObj.two);
 console.log(numObj.two[1]);
-
 console.log(numObj.myFunc(3));
 
 numObj.three.forEach(function(num) {
