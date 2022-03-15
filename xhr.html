@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://jsonplaceholder.typicode.com/users');
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        // console.log('JSON is ' + xhr.responseText);
+        var body = xhr.response;
+         //console.log('JSON is ' + body);
+         var pBody = JSON.parse(body);
+         for (var prop in pBody) {
+          if (Object.prototype.hasOwnProperty.call(pBody, prop)) {
+            console.log(pBody[prop].name);
+            console.log(pBody[prop].website);
+          }
+         }
+      } else {
+        console.log('Request failed. Returned status of ' + xhr.status);
+      }
+    };
+    xhr.send();
+  </script>
+</body>
+
+</html>
